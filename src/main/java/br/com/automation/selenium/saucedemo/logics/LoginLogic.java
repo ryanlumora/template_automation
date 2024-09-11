@@ -2,7 +2,7 @@ package br.com.automation.selenium.saucedemo.logics;
 
 import br.com.automation.selenium.saucedemo.pages.LoginPage;
 import lombok.extern.log4j.Log4j2;
-import org.junit.Assert;
+
 import static br.com.automation.configs.BrowserFactory.web;
 import static br.com.automation.configs.PDFGenerator.pdfGenerator;
 import static br.com.automation.utils.Utilities.*;
@@ -12,7 +12,7 @@ public class LoginLogic {
     private String step;
     private final LoginPage page;
 
-    public LoginLogic(){
+    public LoginLogic() {
         page = new LoginPage();
     }
 
@@ -26,7 +26,7 @@ public class LoginLogic {
         pdfGenerator().takeScreenshot(web(), step);
     }
 
-    public void insertFormsInformation(){
+    public void insertFormsInformation() {
         step = "Preenchendo informações do login";
         log.info(step);
 
@@ -40,19 +40,6 @@ public class LoginLogic {
 
         sleep();
         page.getInputUser().submit();
-
-    }
-
-    public void validateInventoryPage(){
-        step = "Validando que está na tela de pós login";
-
-        log.info(step);
-        sleep();
-
-        Assert.assertTrue(page.getInventory().isDisplayed());
-        Assert.assertTrue(web().getCurrentUrl().endsWith("/inventory.html"));
-
-        pdfGenerator().takeScreenshot(web(), "Validando que está na tela de pós login");
     }
 
 
