@@ -8,15 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 import static br.com.automation.configs.BrowserFactory.web;
 
 @Getter
-public class LoginPage {
+public class HomePage {
 
-    public LoginPage(){
+    public HomePage() {
         PageFactory.initElements(web(), this);
     }
 
-    @FindBy(id = "user-name")
-    private WebElement inputUser;
-
-    @FindBy(id = "password")
-    private WebElement inputPassword;
+    @FindBy(id = "inventory_container")
+    private WebElement inventory;
 }
