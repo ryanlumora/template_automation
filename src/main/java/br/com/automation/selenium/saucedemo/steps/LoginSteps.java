@@ -9,24 +9,19 @@ import java.io.IOException;
 
 public class LoginSteps {
 
-    private final LoginLogic logic;
+    private final LoginLogic loginLogic;
 
     public LoginSteps() {
-        logic = new LoginLogic();
+        loginLogic = new LoginLogic();
     }
 
     @Given("que o usuario esta pagina inicial do sauce demo")
-    public void que_o_usuario_esta_pagina_inicial_do_sauce_demo(){
-        logic.enterIntoSauceDemo();
+    public void que_o_usuario_esta_pagina_inicial_do_sauce_demo() {
+        loginLogic.enterIntoSauceDemo();
     }
 
     @When("preencher usuario e senha corretos")
-    public void preencher_usuario_e_senha_corretos() throws IOException {
-        logic.insertFormsInformation();
-    }
-
-    @Then("podera validar que esta logado")
-    public void podera_validar_que_esta_logado() throws InterruptedException {
-        logic.validateInventoryPage();
+    public void preencher_usuario_e_senha_corretos() {
+        loginLogic.insertFormsInformation();
     }
 }
